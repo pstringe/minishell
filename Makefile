@@ -6,7 +6,7 @@
 #    By: pstringe <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/02 14:49:53 by pstringe          #+#    #+#              #
-#    Updated: 2019/06/21 22:25:37 by pstringe         ###   ########.fr        #
+#    Updated: 2019/06/24 22:28:05 by pstringe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ SFLAGS = -fsanitize=address -fno-omit-frame-pointer
 all: $(NAME)
 
 $(NAME): $(INCD)$(LIB)
-	$(CC) $(CFLAGS) -o $(NAME) ./srcs/builtins/ls/ft_ls.o $(patsubst %, $(SRCD)%.c, $(SRCS)) -L$(LIBD) -lft -I $(INCD) 
+	$(CC) $(CFLAGS) -o $(NAME) $(patsubst %, $(SRCD)%.c, $(SRCS)) -L$(LIBD) -lft -I $(INCD) 
 debug: fclean $(INCD)$(LIB)
 	$(CC) $(CFLAGS) $(DFLAGS) -o $(NAME) $(patsubst %, $(SRCD)%.c, $(SRCS)) -L$(LIBD) -lft -I $(INCD)
 sanitize: fclean $(INCD)$(LIB)
